@@ -1,4 +1,2 @@
 sources:
-  "qtsingleapplication-2.6_1-opensource.tar.gz:"	4034e2ed880353799ad12f0218a8550dba5c5155
-  "qtsingleapplication.prf:"	cd340066f872f293f18476a0f8c74ce5dcd4fe6e
-  "qtsinglecoreapplication.prf:"	46963eb2ec79bdfa36d2d4120bf9dba21cb0d076
+  "qtsingleapplication-2.6_1-opensource.tar.gz": 4034e2ed880353799ad12f0218a8550dba5c5155

@@ -70,4 +70,3 @@ diff -rupN qtsingleapplication-2.6_1-opensource.old/src/qtsinglecoreapplication.
 +    else:qtsinglecoreapplication-uselib:DEFINES += QT_QTSINGLECOREAPPLICATION_IMPORT
 +}
 \ No newline at end of file
-

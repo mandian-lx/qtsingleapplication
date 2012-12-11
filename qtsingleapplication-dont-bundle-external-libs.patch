@@ -70,4 +70,3 @@ diff -rupN qtsingleapplication-2.6_1-opensource.old/src/qtsinglecoreapplication.
  
  qtsinglecoreapplication-uselib:!qtsinglecoreapplication-buildlib {
      LIBS += -L$$QTSINGLECOREAPPLICATION_LIBDIR -l$$QTSINGLECOREAPPLICATION_LIBNAME
-
