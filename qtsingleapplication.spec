@@ -5,8 +5,8 @@
 
 %define libname_major 1
 %define libname_core_major 1
-%define libname %mklibname %name %libname_major
-%define libname_core %mklibname qtsinglecoreapplication %libname_core_major
+%define libname %mklibname %name 2.6
+%define libname_core %mklibname qtsinglecoreapplication 2.6
 %define libname_devel %mklibname %name -d
 %define libname_core_devel %mklibname qtsinglecoreapplication -d
 
