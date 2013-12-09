@@ -3,12 +3,11 @@
 %define upstreamver 2.6_1
 %define version %(echo %upstreamver | sed 's!_!.!' )
 
-%define libname_major 1
-%define libname_core_major 1
-%define libname %mklibname %name 2.6
-%define libname_core %mklibname qtsinglecoreapplication 2.6
-%define libname_devel %mklibname %name -d
-%define libname_core_devel %mklibname qtsinglecoreapplication -d
+%define major 1
+%define libname %mklibname %{name} 2.6
+%define libcore %mklibname qtsinglecoreapplication 2.6
+%define devname %mklibname %{name} -d
+%define devcore %mklibname qtsinglecoreapplication -d
 
 Summary:	Qt library to start applications only once per user
 Name:		qtsingleapplication
@@ -16,7 +15,7 @@ Version:	%{version}
 Release:	10
 Group:		Development/KDE and Qt
 License:	GPLv3 or LGPLv2 with exceptions
-URL:		http://qt.nokia.com/products/appdev/add-on-products/catalog/4/Utilities/qtsingleapplication
+Url:		http://qt.nokia.com/products/appdev/add-on-products/catalog/4/Utilities/qtsingleapplication
 Source0:	http://get.qt.nokia.com/qt/solutions/lgpl/qtsingleapplication-%{upstreamver}-opensource.tar.gz
 # The following source and 2 patches are sent upstream:
 # http://bugreports.qt.nokia.com/browse/QTSOLBUG-119
@@ -48,11 +47,11 @@ instance, and to send command strings to that instance.
 
 #--------------------------------------------------------------------
 
-%package	-n %libname
+%package	-n %{libname}
 Summary:	Qt library to start applications only once per user
 Group:		Development/KDE and Qt
 
-%description	-n %libname
+%description	-n %{libname}
 For some applications it is useful or even critical that they are started
 only once by any user. Future attempts to start the application should
 activate any already running instance, and possibly perform requested
@@ -63,22 +62,22 @@ instance, and to send command strings to that instance.
 
 This is the library package for QtSingleApplication.
 
-%files -n %libname
-%{_qt_libdir}/lib*SingleApplication*.so.%{libname_major}*
+%files -n %{libname}
+%{_qt_libdir}/lib*SingleApplication*.so.%{major}*
 
 #--------------------------------------------------------------------
 
-%package	-n %libname_devel
+%package	-n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/KDE and Qt
 Requires:	%{libname} = %{version}-%{release}
 Provides:	qtsingleapplication-devel = %{version}-%{release}
 
-%description	-n %libname_devel
+%description	-n %{devname}
 This package contains libraries and header files for developing applications
 that use QtSingleApplication.
 
-%files -n %libname_devel
+%files -n %{devname}
 %doc LGPL_EXCEPTION.txt LICENSE.* README.TXT
 %doc doc examples
 %{_qt_libdir}/lib*SingleApplication*.so
@@ -89,11 +88,11 @@ that use QtSingleApplication.
 
 #--------------------------------------------------------------------
 
-%package	-n %libname_core
+%package	-n %{libcore}
 Summary:	Qt library to start applications only once per user
 Group:		Development/KDE and Qt
 
-%description	-n %libname_core
+%description	-n %{libcore}
 For some applications it is useful or even critical that they are started
 only once by any user. Future attempts to start the application should
 activate any already running instance, and possibly perform requested
@@ -104,22 +103,22 @@ is provided, which avoids dependency on QtGui.
 
 This is the library package for QtSingleCoreApplication.
 
-%files -n %libname_core
-%{_qt_libdir}/lib*SingleCoreApplication*.so.%{libname_core_major}*
+%files -n %{libcore}
+%{_qt_libdir}/lib*SingleCoreApplication*.so.%{major}*
 
 #--------------------------------------------------------------------
 
-%package	-n %libname_core_devel
+%package	-n %{devcore}
 Summary:	Development files for qtsinglecoreapplication
 Group:		Development/KDE and Qt
-Requires:	%libname_core = %{version}-%{release}
+Requires:	%{libcore} = %{version}-%{release}
 Provides:	qtsinglecoreapplication-devel = %{version}-%{release}
 
-%description -n %libname_core_devel
+%description -n %{devcore}
 This package contains libraries and header files for developing applications
 that use QtSingleCoreApplication.
 
-%files -n %libname_core_devel
+%files -n %{devcore}
 %doc LGPL_EXCEPTION.txt LICENSE.*
 %{_qt_libdir}/lib*SingleCoreApplication*.so
 %dir %{_qt_includedir}/QtSolutions/
@@ -130,12 +129,8 @@ that use QtSingleCoreApplication.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}-%{upstreamver}-opensource
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-
+%setup -qn %{name}-%{upstreamver}-opensource
+%apply_patches
 
 # (Fedora) We already disabled bundling this extrenal library.
 # But just to make sure:
@@ -166,3 +161,4 @@ cp -a \
 
 mkdir -p %{buildroot}%{_qt_datadir}/mkspecs/features
 cp -a %{SOURCE1} %{SOURCE2} %{buildroot}%{_qt_datadir}/mkspecs/features/
+
