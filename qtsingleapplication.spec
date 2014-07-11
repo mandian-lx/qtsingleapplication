@@ -12,7 +12,7 @@
 Summary:	Qt library to start applications only once per user
 Name:		qtsingleapplication
 Version:	%{version}
-Release:	11
+Release:	12
 Group:		Development/KDE and Qt
 License:	GPLv3 or LGPLv2 with exceptions
 Url:		http://qt.nokia.com/products/appdev/add-on-products/catalog/4/Utilities/qtsingleapplication
