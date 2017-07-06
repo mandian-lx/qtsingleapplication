@@ -33,7 +33,7 @@ Patch2:		qtsingleapplication-add-api.patch
 # gcc-4.7 compilation fix
 Patch3:		qtsingleapplication-gcc47.patch
 
-BuildRequires:	qt4-devel
+BuildRequires:	qt5-devel
 BuildRequires:	qtlockedfile-devel
 
 %description
@@ -141,7 +141,7 @@ rm src/{QtLocked,qtlocked}*
 touch .licenseAccepted
 # Does not use GNU configure
 ./configure -library
-%qmake_qt4
+%qmake_qt5
 %make
 
 %install
