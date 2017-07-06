@@ -63,7 +63,7 @@ instance, and to send command strings to that instance.
 This is the library package for QtSingleApplication.
 
 %files -n %{libname}
-%{_qt_libdir}/lib*SingleApplication*.so.%{major}*
+%{_qt5_libdir}/lib*SingleApplication*.so.%{major}*
 
 #--------------------------------------------------------------------
 
@@ -120,11 +120,11 @@ that use QtSingleCoreApplication.
 
 %files -n %{devcore}
 %doc LGPL_EXCEPTION.txt LICENSE.*
-%{_qt_libdir}/lib*SingleCoreApplication*.so
-%dir %{_qt_includedir}/QtSolutions/
-%{_qt_includedir}/QtSolutions/QtSingleCoreApplication
-%{_qt_includedir}/QtSolutions/qtsinglecoreapplication.h
-%{_qt_datadir}/mkspecs/features/qtsinglecoreapplication.prf
+%{_qt5_libdir}/lib*SingleCoreApplication*.so
+%dir %{_qt5_includedir}/QtSolutions/
+%{_qt5_includedir}/QtSolutions/QtSingleCoreApplication
+%{_qt5_includedir}/QtSolutions/qtsinglecoreapplication.h
+%{_qt5_datadir}/mkspecs/features/qtsinglecoreapplication.prf
 
 #--------------------------------------------------------------------
 
