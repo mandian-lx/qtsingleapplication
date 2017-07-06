@@ -80,11 +80,11 @@ that use QtSingleApplication.
 %files -n %{devname}
 %doc LGPL_EXCEPTION.txt LICENSE.* README.TXT
 %doc doc examples
-%{_qt_libdir}/lib*SingleApplication*.so
-%dir %{_qt_includedir}/QtSolutions/
-%{_qt_includedir}/QtSolutions/QtSingleApplication
-%{_qt_includedir}/QtSolutions/%{name}.h
-%{_qt_datadir}/mkspecs/features/%{name}.prf
+%{_qt5_libdir}/lib*SingleApplication*.so
+%dir %{_qt5_includedir}/QtSolutions/
+%{_qt5_includedir}/QtSolutions/QtSingleApplication
+%{_qt5_includedir}/QtSolutions/%{name}.h
+%{_qt5_libdir}/qt5/mkspecs/features/%{name}.prf
 
 #--------------------------------------------------------------------
 
@@ -104,7 +104,7 @@ is provided, which avoids dependency on QtGui.
 This is the library package for QtSingleCoreApplication.
 
 %files -n %{libcore}
-%{_qt_libdir}/lib*SingleCoreApplication*.so.%{major}*
+%{_qt5_libdir}/lib*SingleCoreApplication*.so.%{major}*
 
 #--------------------------------------------------------------------
 
@@ -124,7 +124,7 @@ that use QtSingleCoreApplication.
 %dir %{_qt5_includedir}/QtSolutions/
 %{_qt5_includedir}/QtSolutions/QtSingleCoreApplication
 %{_qt5_includedir}/QtSolutions/qtsinglecoreapplication.h
-%{_qt5_datadir}/mkspecs/features/qtsinglecoreapplication.prf
+%{_qt5_libdir}/qt5/mkspecs/features/qtsinglecoreapplication.prf
 
 #--------------------------------------------------------------------
 
@@ -146,19 +146,19 @@ touch .licenseAccepted
 
 %install
 # libraries
-mkdir -p %{buildroot}%{_qt_libdir}
-cp -a lib/* %{buildroot}%{_qt_libdir}
-chmod 755 %{buildroot}%{_qt_libdir}/*.so.*.*.*
+mkdir -p %{buildroot}%{_qt5_libdir}
+cp -a lib/* %{buildroot}%{_qt5_libdir}
+chmod 755 %{buildroot}%{_qt5_libdir}/*.so.*.*.*
 
 # headers
-mkdir -p %{buildroot}%{_qt_includedir}/QtSolutions
+mkdir -p %{buildroot}%{_qt5_includedir}/QtSolutions
 cp -a \
     src/qtsingleapplication.h \
     src/QtSingleApplication \
     src/qtsinglecoreapplication.h \
     src/QtSingleCoreApplication \
-    %{buildroot}%{_qt_includedir}/QtSolutions
+    %{buildroot}%{_qt5_includedir}/QtSolutions
 
-mkdir -p %{buildroot}%{_qt_datadir}/mkspecs/features
-cp -a %{SOURCE1} %{SOURCE2} %{buildroot}%{_qt_datadir}/mkspecs/features/
+mkdir -p %{buildroot}%{_qt4_libdir}/qt5/mkspecs/features
+cp -a %{SOURCE1} %{SOURCE2} %{buildroot}%{_qt4_libdir}/qt5/mkspecs/features/
 
