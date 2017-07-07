@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   "qtsingleapplication-2.6_1-opensource.tar.gz": 4034e2ed880353799ad12f0218a8550dba5c5155
+sources:
+  qt-solutions-1fca9c330d8548d84fccb66407fbaf3aae122d17.tar.gz: 6ae8c95d78bbeded183901e8b737c5f4ba9a9652

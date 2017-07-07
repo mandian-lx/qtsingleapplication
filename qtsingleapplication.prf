@@ -1,4 +1,6 @@
-INCLUDEPATH *= $$QMAKE_INCDIR_QT/QtSolutions
-DEPENDPATH  *= $$QMAKE_INCDIR_QT/QtSolutions
-LIBS *= -lQtSolutions_SingleApplication-2.6
+INCLUDEPATH *= $${QT_INSTALL_HEADERS}/QtSolutions
+DEPENDPATH  *= $${QT_INSTALL_HEADERS}/QtSolutions
+LIBS *= -lQt$${QT_MAJOR_VERSION}Solutions_SingleApplication-2.6
+QT *= widgets
 QT *= network
+CONFIG *= qtlockedfile
