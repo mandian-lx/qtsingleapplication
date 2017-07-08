@@ -139,7 +139,7 @@ that use QtSingleCoreApplication.
 rm src/{QtLocked,qtlocked}*
 
 # fix incoherent-version-in-name
-sed -i -e 's|-head$|-%{version}|g' common.pri
+sed -i -e 's|-head|-%{version}|g' common.pri
 sed -i -e 's|-head$|-%{version}|g' %{SOURCE1}
 sed -i -e 's|-head$|-%{version}|g' %{SOURCE2}
 
